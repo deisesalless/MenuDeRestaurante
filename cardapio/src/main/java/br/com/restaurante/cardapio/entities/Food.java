@@ -1,5 +1,6 @@
 package br.com.restaurante.cardapio.entities;
 
+import br.com.restaurante.cardapio.dto.FoodRequestDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -26,4 +27,10 @@ public class Food {
 
     @Column(name = "price")
     private Integer price;
+
+    public Food(FoodRequestDTO data) {
+        this.title = data.title();
+        this.image = data.image();
+        this.price = data.price();
+    }
 }
