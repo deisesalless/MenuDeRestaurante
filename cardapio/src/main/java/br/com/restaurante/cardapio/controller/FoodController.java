@@ -1,5 +1,6 @@
 package br.com.restaurante.cardapio.controller;
 
+import br.com.restaurante.cardapio.dto.FoodRequestDTO;
 import br.com.restaurante.cardapio.dto.FoodResponseDTO;
 import br.com.restaurante.cardapio.entities.Food;
 import br.com.restaurante.cardapio.interfaces.FoodRepository;
@@ -16,9 +17,9 @@ public class FoodController {
     private FoodRepository foodRepository;
 
     @PostMapping
-    public void saveFood(@RequestBody FoodResponseDTO data) {
+    public void saveFood(@RequestBody FoodRequestDTO data) {
         Food foodData = new Food(data);
-        foodRepository.save(data);
+        foodRepository.save(foodData);
     }
 
     @GetMapping
